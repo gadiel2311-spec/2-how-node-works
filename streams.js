@@ -12,6 +12,10 @@ server.on("request", (req, res) => {
   readable.on("data", (chunk) => {
     res.write(chunk);
   });
+  readable.on("end", () => {
+    res.end();
+  });
+  readable.on("error", (err) => {});
 });
 
 server.listen(8000, "127.0.0.1", () => {
